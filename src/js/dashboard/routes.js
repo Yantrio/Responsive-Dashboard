@@ -3,7 +3,7 @@
 /**
  * Route configuration for the Dashboard module.
  */
-angular.module('Dashboard').config(['$stateProvider', '$urlRouterProvider', 
+angular.module('Dashboard').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
     // For unmatched routes
@@ -13,10 +13,10 @@ angular.module('Dashboard').config(['$stateProvider', '$urlRouterProvider',
     $stateProvider
         .state('index', {
             url: '/',
-            templateUrl: 'dashboard.html'
+            templateUrl: 'partials/main.html'
         })
         .state('tables', {
-            url: '/tables', 
+            url: '/tables',
             templateUrl: 'tables.html'
         });
 }]);

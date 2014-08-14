@@ -4,9 +4,12 @@ angular
 
 function rdWidget () {
 	var directive = {
-		transclude: true,
-        template: '<div class="widget" ng-transclude></div>',
-        restrict: 'EA'
+        templateUrl:'partials/directives/widget.html',
+        restrict: 'E',
+				scope: {
+						title: '@',
+						icon: '@'
+				},
     };
     return directive;
 

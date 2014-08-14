@@ -9,8 +9,8 @@ function rdWidgetTitle () {
             title: '@',
             icon: '@'
         },
-		transclude: true,
-        template: '<div class="widget-title"> <i class="fa" ng-class="icon"></i> {{title}} <div class="pull-right" ng-transclude></div></div>',
+				transclude: true,
+				templateUrl: 'partials/directives/widget-title.html',
         restrict: 'E'
     };
     return directive;

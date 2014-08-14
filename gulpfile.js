@@ -1,14 +1,16 @@
-var gulp    = require('gulp'),
-  less      = require('gulp-less'),
-  usemin    = require('gulp-usemin'),
-  wrap      = require('gulp-wrap');
+var gulp      = require('gulp'),
+  less        = require('gulp-less'),
+  usemin      = require('gulp-usemin'),
+  wrap        = require('gulp-wrap'),
+  watch       = require('gulp-watch'),
+  browsersync = require('browser-sync');
 
 var paths = {
   js: 'src/js/**/*.*',
   fonts: 'src/fonts/**.*',
   images: 'src/img/**/*.*',
   styles: 'src/less/**/*.less',
-  index: 'src/index.html',
+  index: 'src/**/*.html',
   bower_fonts: 'src/bower_components/**/*.{ttf,woff,eof,svg}',
   bower_components: 'src/bower_components/**/*.*',
   watch_path: 'src/less/dashboard/**/*.less'
@@ -60,5 +62,19 @@ gulp.task('watch-less', function() {
   gulp.watch(paths.watch_path, ['compile-less']);
 })
 
+
+gulp.task('sync', function() {
+  browsersync({
+    server: {
+      baseDir: "./dist"
+    }
+  });
+})
+
+
 gulp.task('build', ['usemin', 'copy-assets']);
 gulp.task('default', ['build']);
+
+gulp.task('watch',['sync'], function(){
+   gulp.watch('./src/**/*.*',['build',browsersync.reload]);
+});
